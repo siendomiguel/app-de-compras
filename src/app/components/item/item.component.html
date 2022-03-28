@@ -1,0 +1,29 @@
+<!--Acá estamos validando una clase con la propiedad ngClass
+   Podemos llamar una funcion o hacer la validacion aca mismo
+   En este caso, validamos aca mismo -
+   luego le decimos cual es la clase o estilo a agregar y el valor es la
+  exprecion que va a evaluar -->
+
+<div class="row" [ngClass]="{'completed': item.completed}">
+
+  <div class="title">
+    <input type="checkbox" [checked]="item.completed" (change)="onToggle(item)">
+    {{ item.title }}
+  </div>
+
+  <div class="price">
+    {{ item.price | currency }}
+  </div>
+
+  <div class="quantity">
+    {{ item.quantity }}
+  </div>
+
+  <div class="total">
+    {{ (item.price * item.quantity | currency) }}
+  </div>
+
+  <div class="actions">
+    <button (click)="onDelete(item)">Eliminar</button>
+  </div>
+</div>
